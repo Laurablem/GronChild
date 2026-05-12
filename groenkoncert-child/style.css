@@ -231,3 +231,54 @@ Text Domain: groenkoncert-child
     color: white;
   	margin-bottom: 80px;
 }
+
+
+/* dekorativ ramme bag trippelslideren (inspirations delen) */
+
+/* Gør wrapperen relativ så pseudo-elementet kan placeres korrekt */
+.page-merchandise-wrapper .component.triple_sider:nth-of-type(3) {
+    background: #004f20;
+    margin-top: 0;
+    padding-top: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Selve triple slideren får rammen */
+.page-merchandise-wrapper .component.triple_sider:nth-of-type(3) .image-gallery-triple {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hvid ramme der følger sliderens størrelse */
+.page-merchandise-wrapper .component.triple_sider:nth-of-type(3) .image-gallery-triple::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+	transform: translateX(-50%);
+    width: calc(100% + 60px);
+    height: 100%;
+    border: 3px solid white;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@media (max-width: 575px) {
+    .page-merchandise-wrapper .component.triple_sider:nth-of-type(3) .image-gallery-triple::before {
+        top: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        height: calc(100% - 25px);
+        box-sizing: border-box;
+    }
+}
+
+.page-merchandise-wrapper section.component.textmodule:nth-of-type(11) {
+    padding-bottom: 20px;
+    margin-bottom: 0;
+    min-height: auto;
+  	padding-top: 120px;
+}
+

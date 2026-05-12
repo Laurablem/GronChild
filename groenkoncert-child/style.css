@@ -67,3 +67,39 @@ Text Domain: groenkoncert-child
 .page-merchandise-wrapper .component.textimg{
     color:#048F40;
 }
+
+
+/* Text module styling */
+/* Ensretter tekstfarve i tekstmoduler */
+.page-merchandise-wrapper .component.textmodule .text__wrap{
+    color:#048F40;
+}
+/* Merchkort styling */
+/* Wrapper for merchkort-elementer */
+.merchkort-wrapper {
+    position:relative;
+  	margin-bottom: 60px;
+}
+/* Sørger for at merchkort-billeder fylder containerbredden */
+.merchkort-wrapper img{
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Aktiv knap-style i merchkort (ældre selector) */
+.merchkort-item button.is-active {
+    background: #1e3f20;
+    color: #fff;
+}
+
+/*Banner link modul styling*/
+/* Farvetema for bannerlink-komponenten */
+.page-merchandise-wrapper .component.bannerlink{
+    color:#048F40;
+}
+
+.page-merchandise-wrapper .component.bannerlink .text-center{
+    margin-top: -30px;
+  	margin-bottom: 70px;
+}

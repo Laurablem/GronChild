@@ -103,3 +103,131 @@ Text Domain: groenkoncert-child
     margin-top: -30px;
   	margin-bottom: 70px;
 }
+
+
+/* Merchkort navbar styling */
+
+.merchkort-navbar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  	gap: 10px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  	max-width: 750px;
+ 	margin-left: auto;
+ 	margin-right: auto;
+}
+/* Standardstil for knapper i merchkort-navigation */
+.merchkort-navbar-button {
+    background:#04a64b;
+   	color: white;
+    width:150px;
+  	height: 50px;
+    transition:all 1s ease;
+  	border: none;
+    outline: none;
+  	margin-bottom: 10px;
+}
+
+/* Aktiv state for knap i merchkort-navigation */
+.merchkort-navbar-button.is-active {
+    background:#004f20;
+    width:180px;
+	height: 50px;
+}
+
+@media (max-width: 991px) {
+
+    .merchkort-navbar-button {
+        width: 110px;
+        height: 40px;
+        font-size: 15px;
+    }
+
+    .merchkort-navbar-button.is-active {
+        width: 110px;
+        height: 40px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .merchkort-navbar-button {
+        width: 90px;
+        height: 35px;
+        font-size: 13px;
+    }
+
+    .merchkort-navbar-button.is-active {
+        width: 90px;
+        height: 35px;
+        font-size: 13px;
+    }
+}
+
+/*Triple slider */
+/* Tre kolonner pr. slide-item i triple slider */
+.image-gallery-triple .textimg__slideshow-item{
+    width:33.333%;
+    margin-right:10px;
+  	margin-bottom: 60px;
+}
+
+.page-merchandise-wrapper .component.triple_sider {
+    margin-top: 20px;
+}
+
+/* Reducerer whitespace i tekstmoduler på merchsiden */
+.page-merchandise-wrapper section.component.textmodule {
+    padding-top: 80px;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+    min-height: auto;
+}
+
+/* Fjerner ekstra luft inde i tekstmodulet */
+.page-merchandise-wrapper section.component.textmodule .container,
+.page-merchandise-wrapper section.component.textmodule .text__wrap {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+/* gør så overskriften og under-overskrift står tættere sammen */
+.page-merchandise-wrapper .gk-frontpage-banner h4.date {
+    line-height: 0.5;
+}
+
+@media (max-width: 991px) {
+    .page-merchandise-wrapper .gk-frontpage-banner h4.date {
+        line-height: 0.3;
+    }
+}
+@media (max-width: 576px) {
+    .page-merchandise-wrapper .gk-frontpage-banner h4.date {
+        line-height: 0.2;
+    }
+}
+/* gør bagrunden grøn på den ene af trippelsliderne*/
+/* Grøn baggrund på overskrift-modulet */
+.page-merchandise-wrapper section.component.textmodule:nth-of-type(10) {
+    background: #004f20;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Grøn baggrund på slider-modulet */
+.page-merchandise-wrapper .component.triple_sider:nth-of-type(3) {
+    background: #004f20;
+    margin-top: 0;
+    padding-top: 0;
+  	padding-bottom: 60px;
+}
+.page-merchandise-wrapper section.component.textmodule:nth-of-type(10) h1 {
+    color: white;
+  	margin-bottom: 80px;
+}

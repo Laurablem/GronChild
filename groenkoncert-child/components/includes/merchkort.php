@@ -2,7 +2,7 @@
 // Henter komponentens overskrift.
 $title = get_sub_field('overskrift');
 ?>
-<section class="component merchkort child-theme">
+<section class="component merchkort">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -21,18 +21,6 @@ $title = get_sub_field('overskrift');
                             ];
                         endwhile;
                         ?>
-                        <!-- Alle billeder renderes én gang og styres via JS -->
-                        <div class="merchkort-images">
-                            <?php foreach ($merch_items as $index => $item): ?>
-                                <?php if ($item['image']): ?>
-                                    <img
-                                        src="<?php echo esc_url($item['image']); ?>"
-                                        alt="<?php echo esc_attr($item['alt']); ?>"
-                                        data-merch-image="<?php echo esc_attr($index); ?>"
-                                    >
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                        </div>
                         <!-- Navigation med knapper til at skifte aktivt merchkort -->
                         <div class="merchkort-navbar">
                             <?php foreach ($merch_items as $index => $item): ?>
@@ -43,6 +31,18 @@ $title = get_sub_field('overskrift');
                                 >
                                     <?php echo esc_html($item['city']); ?>
                                 </button>
+                            <?php endforeach; ?>
+                        </div>
+                   <!-- Alle billeder renderes én gang og styres via JS -->
+                        <div class="merchkort-images">
+                            <?php foreach ($merch_items as $index => $item): ?>
+                                <?php if ($item['image']): ?>
+                                    <img
+                                        src="<?php echo esc_url($item['image']); ?>"
+                                        alt="<?php echo esc_attr($item['alt']); ?>"
+                                        data-merch-image="<?php echo esc_attr($index); ?>"
+                                    >
+                                <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
                     <?php endif; ?>

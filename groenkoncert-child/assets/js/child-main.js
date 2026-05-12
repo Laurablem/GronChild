@@ -2,7 +2,9 @@
 	'use strict';
 
 	//Flickity slider - anvender jQuery
+	//Triple slider og slider i text /slideshow modul
 	jQuery(function ($) {
+		//Triple slider
 		if ($('.image-gallery-triple').length > 0) {
 			var $carousel = $('.image-gallery-triple').flickity({
 				cellAlign: 'left',
@@ -25,7 +27,24 @@
 				$carousel.flickity('resize');
 			}, 3000);
 		}
+		//Text/slideshow modul
+		if($('.image-gallery').length>0){
+			$carousel = $('.image-gallery').flickity({
+				// options
+				cellAlign: 'left',
+				pageDots: false,
+				imagesLoaded: true,
+				wrapAround: true
+			});
+			setAriaLabelsOnFlickity();
+			setTimeout(function(){
+				$carousel.flickity('resize')
+			},3000);
+		}
 	});
+
+	
+  
 
 	// Finder alle merch-sektioner på siden (hvis komponenten bruges flere steder).
 	const merchSections = document.querySelectorAll('.merchkort');

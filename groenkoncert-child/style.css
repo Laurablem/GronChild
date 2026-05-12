@@ -33,3 +33,37 @@ Text Domain: groenkoncert-child
     left:0;
     z-index:0;
 }
+
+
+/* Text slideshow styling */
+
+/* Justerer overskriftsstørrelse i slideshow-komponenten */
+.textslideshow h3{
+    font-size:22px;
+}
+/* Opretter referencepunkt for pseudo-element-rammen */
+.textslideshow .textimg__slideshow{
+    position:relative;
+}
+/* Grøn dekorativ ramme bag slideshow-billede */
+.textslideshow .textimg__slideshow:before{
+    content:'';
+    display:block;
+    position:absolute;
+    top: -10px;
+    left: -10px;
+    height: 100%;
+    width: 100%;
+    border: 3px solid #048F40;   
+}
+@media (min-width: 576px) {
+    /* Giver mere luft omkring rammen på større skærme */
+    .textslideshow .textimg__slideshow:before{
+        top: -15px;
+        left: -15px;
+    }
+}
+/* Farvetema for tekst/billede-komponenten på merchandise-siden */
+.page-merchandise-wrapper .component.textimg{
+    color:#048F40;
+}

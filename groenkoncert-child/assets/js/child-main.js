@@ -1,50 +1,76 @@
 (function () {
 	'use strict';
 
-	//Flickity slider - anvender jQuery
-	//Triple slider og slider i text /slideshow modul
 	jQuery(function ($) {
-		//Triple slider
-		if ($('.image-gallery-triple').length > 0) {
-			var $carousel = $('.image-gallery-triple').flickity({
-				cellAlign: 'left',
-				pageDots: false,
-				imagesLoaded: true,
-				groupCells: true,
-				wrapAround: true
-			});
-
-			var prevButton = document.querySelector('.flickity-button.previous');
-			var nextButton = document.querySelector('.flickity-button.next');
-			if (prevButton) {
-				prevButton.setAttribute('aria-label', 'Forrige');
-			}
-			if (nextButton) {
-				nextButton.setAttribute('aria-label', 'Næste');
-			}
-
-			setTimeout(function () {
-				$carousel.flickity('resize');
-			}, 3000);
+		function setFlickityNavAria($el) {
+			$el.find('.flickity-button.previous').attr('aria-label', 'Forrige');
+			$el.find('.flickity-button.next').attr('aria-label', 'Næste');
 		}
-		//Text/slideshow modul
-		if($('.image-gallery').length>0){
-			$carousel = $('.image-gallery').flickity({
-				// options
-				cellAlign: 'left',
-				pageDots: false,
-				imagesLoaded: true,
-				wrapAround: true
+
+		// Bind før .flickity(), ellers kan ready være affyret inden lytteren sættes.
+		function bindFlickityReady($el) {
+			$el.on('ready.flickity', function () {
+				$el.flickity('resize');
+				setFlickityNavAria($el);
 			});
-			setAriaLabelsOnFlickity();
-			setTimeout(function(){
-				$carousel.flickity('resize')
-			},3000);
+		}
+
+		var hasFlickityTargets = false;
+
+		if ($('.image-gallery-triple').length > 0) {
+			hasFlickityTargets = true;
+			$('.image-gallery-triple').each(function () {
+				var $el = $(this);
+				bindFlickityReady($el);
+				$el.flickity({
+					cellAlign: 'left',
+					pageDots: false,
+					imagesLoaded: true,
+					groupCells: true,
+					wrapAround: true
+				});
+			});
+		}
+
+		if ($('.image-gallery-child').length > 0) {
+			hasFlickityTargets = true;
+			$('.image-gallery-child').each(function () {
+				var $el = $(this);
+				bindFlickityReady($el);
+				$el.flickity({
+					cellAlign: 'left',
+					pageDots: false,
+					imagesLoaded: true,
+					wrapAround: true
+				});
+			});
+		}
+
+		if (hasFlickityTargets) {
+			$(window).on('load', function () {
+				$('.image-gallery-triple, .image-gallery').each(function () {
+					var $el = $(this);
+					if ($el.data('flickity')) {
+						$el.flickity('resize');
+						setFlickityNavAria($el);
+					}
+				});
+			});
+
+			var resizeTimer;
+			$(window).on('resize', function () {
+				clearTimeout(resizeTimer);
+				resizeTimer = setTimeout(function () {
+					$('.image-gallery-triple, .image-gallery').each(function () {
+						var $el = $(this);
+						if ($el.data('flickity')) {
+							$el.flickity('resize');
+						}
+					});
+				}, 150);
+			});
 		}
 	});
-
-	
-  
 
 	// Finder alle merch-sektioner på siden (hvis komponenten bruges flere steder).
 	const merchSections = document.querySelectorAll('.merchkort');

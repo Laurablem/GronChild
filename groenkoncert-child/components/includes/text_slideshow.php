@@ -18,7 +18,7 @@
                 <div class="textimg__slideshow">
                     <!-- Billedslider: vises kun hvis der er slideshow-rækker -->
                     <?php if(have_rows('slideshow')): ?>
-                        <div class="image-gallery">
+                        <div class="image-gallery-child">
                             <!-- Looper billeder til slideshowet -->
                             <?php while(have_rows('slideshow')): the_row(); ?>
                                 <div class="textimg__slideshow-item">

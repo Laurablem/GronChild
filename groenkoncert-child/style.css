@@ -246,9 +246,6 @@ Text Domain: groenkoncert-child
 
 /* Gør slidersektionen relativ, så pseudo-elementet kan placeres korrekt */
 .page-merchandise-wrapper .component.triple_sider:nth-of-type(3) {
-    background: #004f20;
-    margin-top: 0;
-    padding-top: 0;
     position: relative;
     z-index: 1;
 }
@@ -292,4 +289,27 @@ Text Domain: groenkoncert-child
     margin-bottom: 0;
     min-height: auto;
   	padding-top: 120px;
+}
+
+/* trippelsliderens breakpoints så billederne bedre kan ses */
+/* 3 billeder på desktop */
+.image-gallery-triple .textimg__slideshow-item{
+    width: calc(33.333% - 10px);
+    margin-right: 10px;
+    margin-bottom: 60px;
+}
+
+/* 2 billeder på tablet */
+@media (max-width: 991px) {
+    .image-gallery-triple .textimg__slideshow-item{
+        width: calc(50% - 10px);
+    }
+}
+
+/* 1 billede på mobil */
+@media (max-width: 576px) {
+    .image-gallery-triple .textimg__slideshow-item{
+        width: 100%;
+        margin-right: 0;
+    }
 }

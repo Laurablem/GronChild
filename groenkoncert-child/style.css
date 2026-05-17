@@ -9,6 +9,8 @@ Version: 1.0.0
 Text Domain: groenkoncert-child
 */
 
+/* Merchandise side generelt */
+
 /* Wrapper til hele merchandise-siden, hvor baggrund og tekstfarve sættes */
 .page-merchandise-wrapper{
     background: rgb(240,240,240,1);
@@ -33,7 +35,7 @@ Text Domain: groenkoncert-child
     z-index:0;
 }
 
-/* styling af tekst i print-slideshow */
+/* Print-slideshow */
 
 /* Sætter fontstørrelsen på h3-overskrifterne i print-slidesne */
 .textslideshow h3{
@@ -63,17 +65,36 @@ Text Domain: groenkoncert-child
         left: -15px;
     }
 }
-/* Farvetema for textimg-komponenten */
+/* Grøn tekstfarve i print-slideshowet */
 .page-merchandise-wrapper .component.textimg{
     color:#048F40;
 }
 
-/* Text module styling */
+/* Almindelige tekstsektioner */
 /* Sikrer at tekstområdet i tekstmodulerne også får den grønne tekstfarve */
 .page-merchandise-wrapper .component.textmodule .text__wrap{
     color:#048F40;
 }
-/* Merchkort styling */
+
+/* Justerer afstanden omkring tekstmodulerne på merchsiden */
+.page-merchandise-wrapper section.component.textmodule {
+    padding-top: 80px;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+    min-height: auto;
+}
+
+/* Fjerner ekstra padding og margin inde i tekstmodulerne */
+.page-merchandise-wrapper section.component.textmodule .container,
+.page-merchandise-wrapper section.component.textmodule .text__wrap {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Merchkort */
+
 /* Wrapper for merchkort-elementer */
 .merchkort-wrapper {
     position:relative;
@@ -86,13 +107,7 @@ Text Domain: groenkoncert-child
     margin: 0 auto;
 }
 
-/* Aktiv knap-style i merchkort */
-.merchkort-item button.is-active {
-    background: #1e3f20;
-    color: #fff;
-}
-
-/*Banner link modul styling*/
+/* Bannerlink - "Dit køb betyder noget"-sektion */
 /* Farvetema for bannerlink-komponenten */
 .page-merchandise-wrapper .component.bannerlink{
     color:#048F40;
@@ -104,7 +119,7 @@ Text Domain: groenkoncert-child
   	margin-bottom: 70px;
 }
 
-/* Merchkort navbar styling */
+/* Merchkort navigation */
 
 /* Centrerer merchkort-navigationen og gør den fleksibel */
 .merchkort-navbar {
@@ -147,7 +162,7 @@ Text Domain: groenkoncert-child
         font-size: 15px;
     }
 
-      /* Styling af den aktive knap på tablet (størrelse) */
+     /* Styling af den aktive knap på tablet (størrelse) */
     .merchkort-navbar-button.is-active {
         width: 110px;
         height: 40px;
@@ -158,14 +173,14 @@ Text Domain: groenkoncert-child
 /* Mobil-størrelse for merchkort-knapperne */
 @media (max-width: 576px) {
 
-      /* Styling af knapperne på mobil (størrelse) */
+     /* Styling af knapperne på mobil (størrelse) */
     .merchkort-navbar-button {
         width: 90px;
         height: 35px;
         font-size: 13px;
     }
 
-      /* Styling af den aktive knap på mobil (størrelse) */
+     /* Styling af den aktive knap på mobil (størrelse) */
     .merchkort-navbar-button.is-active {
         width: 90px;
         height: 35px;
@@ -174,36 +189,36 @@ Text Domain: groenkoncert-child
 }
 
 /* Triple slider */
-/* Gør hvert slide-item cirka en tredjedel bredt */
-.image-gallery-triple .textimg__slideshow-item{
-    width:33.333%;
-    margin-right:10px;
-  	margin-bottom: 60px;
-}
 
 /* Afstand over triple slider-komponenten */
 .page-merchandise-wrapper .component.triple_sider {
     margin-top: 20px;
 }
 
-/* Justerer afstanden omkring tekstmodulerne på merchsiden */
-.page-merchandise-wrapper section.component.textmodule {
-    padding-top: 80px;
-    padding-bottom: 20px;
-    margin-bottom: 0;
-    min-height: auto;
+/* Breakpoints for antallet af billeder i trippelslideren */
+/* 3 billeder på desktop */
+.image-gallery-triple .textimg__slideshow-item{
+    width: calc(33.333% - 10px);
+    margin-right: 10px;
+    margin-bottom: 60px;
 }
 
-/* Fjerner ekstra padding og margin inde i tekstmodulerne */
-.page-merchandise-wrapper section.component.textmodule .container,
-.page-merchandise-wrapper section.component.textmodule .text__wrap {
-    padding-top: 0;
-    padding-bottom: 0;
-    margin-top: 0;
-    margin-bottom: 0;
+/* 2 billeder på tablet */
+@media (max-width: 991px) {
+    .image-gallery-triple .textimg__slideshow-item{
+        width: calc(50% - 10px);
+    }
 }
 
+/* 1 billede på mobil */
+@media (max-width: 576px) {
+    .image-gallery-triple .textimg__slideshow-item{
+        width: 100%;
+        margin-right: 0;
+    }
+}
 
+/* Frontpage banner - Hero sektionen */
 /* Gør så overskrift og underoverskrift står tættere sammen */
 .page-merchandise-wrapper .gk-frontpage-banner h4.date {
     line-height: 0.5;
@@ -221,6 +236,9 @@ Text Domain: groenkoncert-child
         line-height: 0.2;
     }
 }
+
+/* Inspirationsslider (trippelslideren) */
+
 /* Gør baggrunden mørkegrøn på overskrift-modulet over inspirationsslideren */
 .page-merchandise-wrapper section.component.textmodule:nth-of-type(10) {
     background: #004f20;
@@ -228,7 +246,7 @@ Text Domain: groenkoncert-child
     padding-bottom: 0;
 }
 
-/* Grøn baggrund på inspirations slider-modulet */
+/* Grøn baggrund og afstand på inspirationsslideren */
 .page-merchandise-wrapper .component.triple_sider:nth-of-type(3) {
     background: #004f20;
     margin-top: 0;
@@ -242,9 +260,9 @@ Text Domain: groenkoncert-child
   	margin-bottom: 80px;
 }
 
-/* dekorativ ramme bag trippelslideren (inspirations modulet) */
+/* Dekorativ ramme bag inspirationsslideren */
 
-/* Gør slidersektionen relativ, så pseudo-elementet kan placeres korrekt */
+/* Gør inspirationsslideren relativ, så pseudo-elementet (den dekorative ramme) kan placeres korrekt */
 .page-merchandise-wrapper .component.triple_sider:nth-of-type(3) {
     position: relative;
     z-index: 1;
@@ -256,7 +274,7 @@ Text Domain: groenkoncert-child
     z-index: 1;
 }
 
-/* Hvid dekorativ ramme bag trippelslideren */
+/* Hvid dekorativ ramme bag inspirationsslideren */
 .page-merchandise-wrapper .component.triple_sider:nth-of-type(3) .image-gallery-triple::before {
     content: '';
     position: absolute;
@@ -291,25 +309,3 @@ Text Domain: groenkoncert-child
   	padding-top: 120px;
 }
 
-/* trippelsliderens breakpoints så billederne bedre kan ses */
-/* 3 billeder på desktop */
-.image-gallery-triple .textimg__slideshow-item{
-    width: calc(33.333% - 10px);
-    margin-right: 10px;
-    margin-bottom: 60px;
-}
-
-/* 2 billeder på tablet */
-@media (max-width: 991px) {
-    .image-gallery-triple .textimg__slideshow-item{
-        width: calc(50% - 10px);
-    }
-}
-
-/* 1 billede på mobil */
-@media (max-width: 576px) {
-    .image-gallery-triple .textimg__slideshow-item{
-        width: 100%;
-        margin-right: 0;
-    }
-}

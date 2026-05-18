@@ -2,12 +2,13 @@
 	'use strict';
 
 	jQuery(function ($) {
+      	// Gør Flickitys forrige/næste-knapper mere tilgængelige med danske aria-labels
 		function setFlickityNavAria($el) {
 			$el.find('.flickity-button.previous').attr('aria-label', 'Forrige');
 			$el.find('.flickity-button.next').attr('aria-label', 'Næste');
 		}
 
-		// Bind før .flickity(), ellers kan ready være affyret inden lytteren sættes.
+		// Kører når Flickity er klar, så slideren får rigtig størrelse og rigtige labels
 		function bindFlickityReady($el) {
 			$el.on('ready.flickity', function () {
 				$el.flickity('resize');
@@ -15,8 +16,10 @@
 			});
 		}
 
+      	// Holder styr på om der findes Flickity-slidere på siden
 		var hasFlickityTargets = false;
 
+      	// Starter Flickity på trippelslideren, så billederne kan swipe/klikkes igennem
 		if ($('.image-gallery-triple').length > 0) {
 			hasFlickityTargets = true;
 			$('.image-gallery-triple').each(function () {
@@ -32,6 +35,7 @@
 			});
 		}
 
+      	// Starter Flickity på print-slideshowet, så billederne kan swipe/klikkes igennem
 		if ($('.image-gallery-child').length > 0) {
 			hasFlickityTargets = true;
 			$('.image-gallery-child').each(function () {
@@ -47,8 +51,10 @@
 		}
 
 		if (hasFlickityTargets) {
+          
+          	// Retter sliderne til igen, når siden er helt loadet
 			$(window).on('load', function () {
-				$('.image-gallery-triple, .image-gallery').each(function () {
+				$('.image-gallery-triple, .image-gallery-child').each(function () {
 					var $el = $(this);
 					if ($el.data('flickity')) {
 						$el.flickity('resize');
@@ -58,10 +64,12 @@
 			});
 
 			var resizeTimer;
+          
+          	// Retter sliderne til igen, når skærmstørrelsen ændrer sig
 			$(window).on('resize', function () {
 				clearTimeout(resizeTimer);
 				resizeTimer = setTimeout(function () {
-					$('.image-gallery-triple, .image-gallery').each(function () {
+					$('.image-gallery-triple, .image-gallery-child').each(function () {
 						var $el = $(this);
 						if ($el.data('flickity')) {
 							$el.flickity('resize');
@@ -72,34 +80,34 @@
 		}
 	});
 
-	// Finder alle merch-sektioner på siden (hvis komponenten bruges flere steder).
+	// Finder alle merch-sektioner på siden (hvis komponenten bruges flere steder)
 	const merchSections = document.querySelectorAll('.merchkort');
 	merchSections.forEach((section) => {
-		// Henter knapper (byer) og billeder inden for den aktuelle sektion.
+		// Finder knapper (byer) og billeder i merchkortet, så de kan kobles sammen
 		const buttons = section.querySelectorAll('[data-merch-index]');
 		const images = section.querySelectorAll('[data-merch-image]');
-		// Stopper tidligt hvis der mangler data at arbejde med.
+		// Stopper hvis der mangler knapper eller billeder
 		if (!buttons.length || !images.length) return;
 
-		// Opdaterer aktivt billede og aktiv knap ud fra valgt indeks.
+		// Skifter hvilket billede og hvilken knap der er aktiv
 		function setActive(indexToShow) {
-			// Viser kun billedet, der matcher det valgte indeks.
+			// Viser kun det billede, der passer til den knap brugeren har valgt
 			images.forEach((img) => {
 				const isMatch = img.dataset.merchImage === String(indexToShow);
 				img.style.display = isMatch ? '' : 'none';
 			});
-			// Marker den aktive knap visuelt og for tilgængelighed (aria-pressed).
+			// Giver den valgte knap active-klassen, så den kan styles med CSS
 			buttons.forEach((btn) => {
 				const isActive = btn.dataset.merchIndex === String(indexToShow);
 				btn.classList.toggle('is-active', isActive);
 				btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
 			});
 		}
-		// Vælg første knap/billede som standard ved load.
+		// Viser det første merchkort fra start
 		const firstIndex = buttons[0].dataset.merchIndex;
 		setActive(firstIndex);
 
-		// Skifter aktivt billede når brugeren klikker på en knap.
+		// Skifter merchkort når brugeren klikker på en knap
 		buttons.forEach((button) => {
 			button.addEventListener('click', function () {
 				setActive(this.dataset.merchIndex);

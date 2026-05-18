@@ -1,5 +1,5 @@
 <?php
-// Henter komponentens overskrift.
+/* Henter overskriften, som vises over merchkortene */
 $title = get_sub_field('overskrift');
 ?>
 <section class="component merchkort">
@@ -8,7 +8,8 @@ $title = get_sub_field('overskrift');
             <div class="col-lg-12">
                 <h2><?php echo esc_html($title); ?></h2>
                 <div class="merchkort-wrapper">
-                    <!-- Bygger et internt array af merch-data fra ACF-rækker -->
+                  
+					<!-- Samler alle merchkort i et array, så data kan bruges til både knapper og billeder -->
                     <?php if (have_rows('kort')): ?>
                         <?php
                         $merch_items = [];
@@ -21,7 +22,7 @@ $title = get_sub_field('overskrift');
                             ];
                         endwhile;
                         ?>
-                        <!-- Navigation med knapper til at skifte aktivt merchkort -->
+                        <!-- Knapper til at skifte mellem merchkortene -->
                         <div class="merchkort-navbar">
                             <?php foreach ($merch_items as $index => $item): ?>
                                 <button
@@ -33,7 +34,7 @@ $title = get_sub_field('overskrift');
                                 </button>
                             <?php endforeach; ?>
                         </div>
-                   <!-- Alle billeder renderes én gang og styres via JS -->
+                        <!-- Billederne vises/skjules med JavaScript -->
                         <div class="merchkort-images">
                             <?php foreach ($merch_items as $index => $item): ?>
                                 <?php if ($item['image']): ?>

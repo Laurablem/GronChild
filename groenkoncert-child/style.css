@@ -240,14 +240,15 @@ Text Domain: groenkoncert-child
 /* Inspirationsslider (trippelslideren) */
 
 /* Gør baggrunden mørkegrøn på overskrift-modulet over inspirationsslideren */
-.page-merchandise-wrapper section.component.textmodule:nth-of-type(10) {
+.page-merchandise-wrapper section.component.textmodule:nth-of-type(11) {
     background: #004f20;
     margin-bottom: 0;
     padding-bottom: 0;
+  	padding-top: 60px;
 }
 
 /* Grøn baggrund og afstand på inspirationsslideren */
-.page-merchandise-wrapper .component.triple_sider:nth-of-type(3) {
+.page-merchandise-wrapper .component.triple_sider:nth-of-type(4) {
     background: #004f20;
     margin-top: 0;
     padding-top: 0;
@@ -255,7 +256,7 @@ Text Domain: groenkoncert-child
 }
 
 /* Hvid overskrift på den grønne baggrund */
-.page-merchandise-wrapper section.component.textmodule:nth-of-type(10) h1 {
+.page-merchandise-wrapper section.component.textmodule:nth-of-type(11) h1 {
     color: white;
   	margin-bottom: 80px;
 }
@@ -263,19 +264,19 @@ Text Domain: groenkoncert-child
 /* Dekorativ ramme bag inspirationsslideren */
 
 /* Gør inspirationsslideren relativ, så pseudo-elementet (den dekorative ramme) kan placeres korrekt */
-.page-merchandise-wrapper .component.triple_sider:nth-of-type(3) {
+.page-merchandise-wrapper .component.triple_sider:nth-of-type(4) {
     position: relative;
     z-index: 1;
 }
 
 /* Gør selve slideren relativ, så rammen følger sliderens placering */
-.page-merchandise-wrapper .component.triple_sider:nth-of-type(3) .image-gallery-triple {
+.page-merchandise-wrapper .component.triple_sider:nth-of-type(4) .image-gallery-triple {
     position: relative;
     z-index: 1;
 }
 
 /* Hvid dekorativ ramme bag inspirationsslideren */
-.page-merchandise-wrapper .component.triple_sider:nth-of-type(3) .image-gallery-triple::before {
+.page-merchandise-wrapper .component.triple_sider:nth-of-type(4) .image-gallery-triple::before {
     content: '';
     position: absolute;
     top: -30px;
@@ -291,7 +292,7 @@ Text Domain: groenkoncert-child
 /* Mobil-størrelse for den hvide ramme */
 @media (max-width: 575px) {
       /* Gør sådan at rammen er fuld bredde på mobil */
-    .page-merchandise-wrapper .component.triple_sider:nth-of-type(3) .image-gallery-triple::before {
+    .page-merchandise-wrapper .component.triple_sider:nth-of-type(4) .image-gallery-triple::before {
         top: -18px;
         left: 50%;
         transform: translateX(-50%);
@@ -302,7 +303,7 @@ Text Domain: groenkoncert-child
 }
 
 /* Justerer luften i tekstmodulet efter slideren */
-.page-merchandise-wrapper section.component.textmodule:nth-of-type(11) {
+.page-merchandise-wrapper section.component.textmodule:nth-of-type(12) {
     padding-bottom: 20px;
     margin-bottom: 0;
     min-height: auto;
